@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>404 Not Found</title>
+  <style>
+    body { text-align: center; background: #111; color: white; font-family: sans-serif; }
+    canvas { margin-top: 50px; }
+  </style>
+</head>
+<body>
+  <h1>404 - Page Not Found</h1>
+  <p>Oops! Let's play a game while you're here.</p>
+  <canvas id="game" width="300" height="150" style="background: #222;"></canvas>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    let x = 10, dx = 2;
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.arc(x, 75, 10, 0, Math.PI * 2);
+      ctx.fillStyle = "#0f0";
+      ctx.fill();
+      ctx.closePath();
+      if (x + dx > canvas.width - 10 || x + dx < 10) dx = -dx;
+      x += dx;
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>
