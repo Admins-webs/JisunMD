@@ -1,0 +1,17 @@
+<div id="chatbot" class="chatbot">
+  <div class="messages" id="messages"></div>
+  <input type="text" id="chat-input" placeholder="Type a message..." />
+</div>
+<script>
+  const input = document.getElementById("chat-input");
+  const messages = document.getElementById("messages");
+  input.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      const msg = document.createElement("div");
+      msg.textContent = input.value;
+      msg.className = "message user";
+      messages.appendChild(msg);
+      input.value = "";
+    }
+  });
+</script>
